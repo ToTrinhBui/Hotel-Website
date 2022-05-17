@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+	<title>Room Details</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<header class="header" id="navigation-menu">
+		<div class="container">
+			<nav>
+				<a th:href="@{/}" class="logo"> <img th:src="@{/image/logo.png}" alt=""> </a>
+
+				<ul class="nav-menu">
+					<li> <a href="#about" class="nav-link">About</a> </li>
+					<li> <a href="#contact" class="nav-link">Contact</a> </li>
+					<li> <a th:href="@{/}">Home</a></li>
+					<li> <a th:href="@{/rooms}">Manage room</a> </li>
+					<li> <a th:href="@{/orders}">Order</a> </li>
+					<li> <a th:href="@{/login}">Login</a> </li>
+					<li> <a th:href="@{/register}">Register</a> </li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+	<section class="restaurant mtop" id="restaurant">
+		<div class="container">
+			<div class="heading">
+				<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
+				<h2>Room Details</h2>
+			</div>
+		</div>
+		<div class="container flex">
+			<div class="left">
+				<img th:src="@{/image/r9.jpg}" alt="">
+			</div>
+			<div class="right">
+				<div class="text">
+					<h2>Tên phòng</h2>
+					<p>Phòng loại I.</p>
+				</div>
+				<div class="accordionWrapper">
+					<div class="accordionItem open">
+						<h2 class="accordionIHeading">Mô tả</h2>
+						<div class="accordionItemContent">
+							<p th:field="*{description}">Phòng đôi rộng 50 mét vuông và có hướng nhìn ra vườn hoa.
+							</p>
+						</div>
+					</div>
+					<div class="accordionItem close">
+						<h2 class="accordionIHeading">Giá</h2>
+						<div class="accordionItemContent">
+							<p th:field="*{price}">500.000 VND/per night
+							</p>
+						</div>
+					</div>
+					<div class="accordionItem close">
+						<h2 class="accordionIHeading">Số phòng trống</h2>
+						<div class="accordionItemContent">
+							<p th:field="*{available}">No idea. Please ask the manager.
+							</p>
+						</div>
+					</div>
+					<div class="accordionItem close">
+						<h2 class="accordionIHeading">Mã phòng</h2>
+						<div class="accordionItemContent">
+							<p th:field="*{id}">1
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<a th:href="@{/rooms}"><button class="btn1">RETURN</button></a>
+
+			</div>
+		</div>
+	</section>
+	<script>
+		var accItem = document.getElementsByClassName('accordionItem');
+		var accHD = document.getElementsByClassName('accordionIHeading');
+
+		for (i = 0; i < accHD.length; i++) {
+			accHD[i].addEventListener('click', toggleItem, false);
+		}
+
+		function toggleItem() {
+			var itemClass = this.parentNode.className;
+			for (var i = 0; i < accItem.length; i++) {
+				accItem[i].className = 'accordionItem close';
+			}
+			if (itemClass == 'accordionItem close') {
+				this.parentNode.className = 'accordionItem open';
+			}
+		}
+	</script>
+	<footer>
+		<div class="container grid top">
+			<div class="box">
+				<img
+					src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/48/000000/external-hotel-hotel-services-and-city-elements-flatart-icons-flat-flatarticons-1.png" />
+				<p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+					id
+					est laborum.</p>
+
+				<p>Accepted payment methods</p>
+				<div class="payment grid">
+					<img src="https://img.icons8.com/color/48/000000/visa.png" />
+					<img src="https://img.icons8.com/color/48/000000/mastercard.png" />
+					<img src="https://img.icons8.com/color-glass/48/000000/paypal.png" />
+					<img src="https://img.icons8.com/fluency/48/000000/amex.png" />
+				</div>
+			</div>
+
+			<div class="box">
+				<h3>Recent News</h3>
+
+				<ul>
+					<li>Our Secret Island Boat Tour Is Just for You</li>
+					<li>Chill and Escape in Our Natural Shelters</li>
+					<li>September in Luviana Hotel</li>
+					<li>Live Music Concerts at Luviana</li>
+				</ul>
+			</div>
+
+			<div class="box">
+				<h3>For Customers</h3>
+				<ul>
+					<li>About Luviana</li>
+					<li>Customer Care/Help</li>
+					<li>Corporate Accounts</li>
+					<li>Financial Information</li>
+					<li>Terms & Conditions</li>
+				</ul>
+			</div>
+
+			<div class="box">
+				<h3>Contact Us</h3>
+
+				<ul>
+					<li>3015 Grand Ave, Cocount Grove, Merrick Way FL 123456</li>
+					<li><i class="far fa-envelope"></i>demoexample@gmail.com </li>
+					<li><i class="far fa-phone-alt"></i>123 456 7898 </li>
+					<li><i class="far fa-phone-alt"></i>123 456 7898 </li>
+					<li><i class="far fa-comments"></i>24/ 7 Customer Services </li>
+				</ul>
+			</div>
+		</div>
+
+	</footer>
+</body>
+
+</html>
