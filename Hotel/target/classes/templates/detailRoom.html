@@ -2,13 +2,12 @@
 <html lang="en" dir="ltr">
 
 <head>
-	<title>Room Details</title>
+	<title>Details Room </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
-
 	<header class="header" id="navigation-menu">
 		<div class="container">
 			<nav>
@@ -16,10 +15,10 @@
 
 				<ul class="nav-menu">
 					<li> <a href="#about" class="nav-link">About</a> </li>
-					<li> <a href="#contact" class="nav-link">Contact</a> </li>
 					<li> <a th:href="@{/}">Home</a></li>
 					<li> <a th:href="@{/rooms}">Manage room</a> </li>
 					<li> <a th:href="@{/orders}">Order</a> </li>
+					<li> <a th:href="@{/customers}">Customer</a> </li>
 					<li> <a th:href="@{/login}">Login</a> </li>
 					<li> <a th:href="@{/register}">Register</a> </li>
 				</ul>
@@ -40,35 +39,35 @@
 			</div>
 			<div class="right">
 				<div class="text">
-					<h2>Tên phòng</h2>
-					<p>Phòng loại I.</p>
+					<label>Room name</label>
+					<h2 th:text="${room.name}">Tên phòng</h2>
 				</div>
 				<div class="accordionWrapper">
 					<div class="accordionItem open">
-						<h2 class="accordionIHeading">Mô tả</h2>
+						<h2 class="accordionIHeading">Description</h2>
 						<div class="accordionItemContent">
-							<p th:field="*{description}">Phòng đôi rộng 50 mét vuông và có hướng nhìn ra vườn hoa.
+							<p th:text="${room.description}">Phòng đôi rộng 50 mét vuông và có hướng nhìn ra vườn hoa.
 							</p>
 						</div>
 					</div>
 					<div class="accordionItem close">
-						<h2 class="accordionIHeading">Giá</h2>
+						<h2 class="accordionIHeading">Price</h2>
 						<div class="accordionItemContent">
-							<p th:field="*{price}">500.000 VND/per night
+							<p><span th:text="${room.price}">500.000</span> VND/per night
 							</p>
 						</div>
 					</div>
 					<div class="accordionItem close">
-						<h2 class="accordionIHeading">Số phòng trống</h2>
+						<h2 class="accordionIHeading">Available room</h2>
 						<div class="accordionItemContent">
-							<p th:field="*{available}">No idea. Please ask the manager.
-							</p>
+							<p>Còn <span th:text="${room.available}">No idea. Please ask the manager.</span>
+							phòng trống</p>
 						</div>
 					</div>
 					<div class="accordionItem close">
-						<h2 class="accordionIHeading">Mã phòng</h2>
+						<h2 class="accordionIHeading">Room ID</h2>
 						<div class="accordionItemContent">
-							<p th:field="*{id}">1
+							<p>Mã phòng là <span th:text="${room.id}">1</span>
 							</p>
 						</div>
 					</div>

@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-	<title>Edit Room</title>
+	<title>Add Room</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -15,10 +15,10 @@
 
 				<ul class="nav-menu">
 					<li> <a href="#about" class="nav-link">About</a> </li>
-					<li> <a href="#contact" class="nav-link">Contact</a> </li>
 					<li> <a th:href="@{/}">Home</a></li>
 					<li> <a th:href="@{/rooms}">Manage room</a> </li>
 					<li> <a th:href="@{/orders}">Order</a> </li>
+					<li> <a th:href="@{/customers}">Customer</a> </li>
 					<li> <a th:href="@{/login}">Login</a> </li>
 					<li> <a th:href="@{/register}">Register</a> </li>
 				</ul>
@@ -42,28 +42,28 @@
 					<h2> Information </h2>
 					<table cellspacing="5" border="0">
 						<tr>
-							<td align="right"><label for="id">Id: </label></td>
+							<th align="right"><label for="id">Id: </label></th>
 							<td align="right"><input type="text" th:field="*{id}" placeholder="Id" /></td>
 						</tr>
 						<tr>
-							<td align="right"><label for="name">Name: </label></td>
+							<th align="right"><label for="name">Name: </label></th>
 							<td align="right"><input type="text" th:field="*{name}" placeholder="Name" /></td>
 						</tr>
 						<tr>
-							<td align="right"><label for="description">Description: </label></td>
+							<th align="right"><label for="description">Description: </label></th>
 							<td align="right"><input type="text" th:field="*{description}" placeholder="Description" />
 							</td>
 						</tr>
 						<tr>
-							<td align="right"><label for="price">Price: </label></td>
+							<th align="right"><label for="price">Price: </label></th>
 							<td align="right"><input type="text" th:field="*{price}" placeholder="Price" /></td>
 						</tr>
 						<tr>
-							<td align="right"><label for="image">Image: </label></td>
+							<th align="right"><label for="image">Image: </label></td>
 							<td align="right"><input type="text" th:field="*{image}" placeholder="Image" /></td>
 						</tr>
 						<tr>
-							<td align="right"><label for="available">Available: </label></td>
+							<th align="right"><label for="available">Available: </label></th>
 							<td align="right"><input type="text" th:field="*{available}" placeholder="Available" /></td>
 						</tr>
 					</table><br>

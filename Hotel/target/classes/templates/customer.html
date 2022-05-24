@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-	<title>Delete Room</title>
+	<title>Customer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -26,53 +26,32 @@
 		</div>
 	</header>
 
-	<section class="restaurant mtop" id="restaurant">
+	<section class="order mtop" id="order">
 		<div class="container">
 			<div class="heading">
 				<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
-				<h2>Are you sure you want to delete this room?</h2>
+				<h2>Customers</h2>
 			</div>
+			<table>
+				<tr>
+					<th>Id</th>
+					<th>Name</th>
+					<th>Date Of Birth</th>
+					<th>Address</th>
+					<th>Phone Number</th>
+					<th></th>
+				</tr>
+				<tr th:each="user : ${users}" valign="top">
+						<td th:text="${user.id}">id</td>
+						<td th:text="${user.name}">name</td>
+						<td th:text="${user.birthday}">birthday</td>
+						<td th:text="${user.address}">address</td>
+						<td th:text="${user.phone}">phone</td>
+						<td><a th:href="@{/customers/detailUser?code={code}(code=${user.id})}">More</a></td>
+				</tr>
+			</table><br>
 		</div>
-		<div class="container flex">
-			<div class="left">
-				<img th:src="@{/${room.image}}" alt="">
-			</div>
-			<div class="right">
-				<form method="POST" th:action="@{/rooms/delete}" th:object="${room}">
-					<h2> Information </h2>
-					<table>
-						<tr>
-							<th align="right"><label for="id">Id: </label></th>
-							<td align="left" th:text="${room.id}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="name">Name: </label></th>
-							<td align="left" th:text="${room.name}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="description">Description: </label></th>
-							<td align="left" th:text="${room.description}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="price">Price: </label></th>
-							<td align="left" th:text="${room.price}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="image">Image: </label></th>
-							<td align="left" th:text="${room.image}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="available">Available: </label></th>
-							<td align="left" th:text="${room.available}"></td>
-						</tr>
-					</table><br>
 
-					<input class="inputX" type="submit" value="YES">
-					<a th:href="@{/rooms}"><button class="btn1">NO</button></a>
-
-				</form>
-			</div>
-		</div>
 	</section>
 
 	<footer>

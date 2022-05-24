@@ -2,22 +2,23 @@
 <html lang="en" dir="ltr">
 
 <head>
-	<title>Manage Room</title>
-	<link rel="stylesheet" href="css/style.css">
+	<title>Room</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 	<header class="header" id="navigation-menu">
 		<div class="container">
 			<nav>
-				<a th:href="@{/}" class="logo"> <img src="image/logo.png" alt=""> </a>
+				<a th:href="@{/}" class="logo"> <img th:src="@{/image/logo.png}" alt=""> </a>
 
 				<ul class="nav-menu">
 					<li> <a href="#about" class="nav-link">About</a> </li>
-					<li> <a href="#contact" class="nav-link">Contact</a> </li>
 					<li> <a th:href="@{/}">Home</a></li>
 					<li> <a th:href="@{/rooms}">Manage room</a> </li>
 					<li> <a th:href="@{/orders}">Order</a> </li>
+					<li> <a th:href="@{/customers}">Customer</a> </li>
 					<li> <a th:href="@{/login}">Login</a> </li>
 					<li> <a th:href="@{/register}">Register</a> </li>
 				</ul>
