@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-	<title>Delete Room</title>
+	<title>Details Customer</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
@@ -26,53 +26,48 @@
 		</div>
 	</header>
 
-	<section class="restaurant mtop" id="restaurant">
+	<section class="detail mtop" id="detail">
 		<div class="container">
 			<div class="heading">
 				<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
-				<h2>Are you sure you want to delete this room?</h2>
+				<h2>Details Customer</h2>
 			</div>
+			<table>
+				<tr>
+					<th><label for="id">Id: </label></th>
+					<td th:text="${user.id}">Id</td>
+				</tr>
+				<tr>
+					<th><label for="name">Name: </label></th>
+					<td th:text="${user.name}" >Name</td>
+				</tr>
+				<tr>
+					<th><label for="birthday">Date of Birth: </label></th>
+					<td th:text="${user.birthday}">Date of Birth</td>
+				</tr>
+				<tr>
+					<th><label for="address">Address: </label></th>
+					<td th:text="${user.address}">Address</td >
+				</tr>
+				<tr>
+					<th><label for="phone">Phone Number: </label></th>
+					<td th:text="${user.phone}">Phone Number</td >
+				</tr>
+				<tr>
+					<th><label for="email">Email: </label></th>
+					<td th:text="${user.email}">Email</td >
+				</tr>
+				<tr>
+					<th><label for="username">Username: </label></th>
+					<td th:text="${user.username}">Username</td>
+				</tr>
+				<tr>
+					<th><label for="password">Password: </label></th>
+					<td th:value="${user.password}" type="hidden" >******</td>
+				</tr>
+			</table><br>
 		</div>
-		<div class="container flex">
-			<div class="left">
-				<img th:src="@{/${room.image}}" alt="">
-			</div>
-			<div class="right">
-				<form method="POST" th:action="@{/rooms/delete}" th:object="${room}">
-					<h2> Information </h2>
-					<table>
-						<tr>
-							<th align="right"><label for="id">Id: </label></th>
-							<td align="left" th:text="${room.id}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="name">Name: </label></th>
-							<td align="left" th:text="${room.name}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="description">Description: </label></th>
-							<td align="left" th:text="${room.description}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="price">Price: </label></th>
-							<td align="left" th:text="${room.price}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="image">Image: </label></th>
-							<td align="left" th:text="${room.image}"></td>
-						</tr>
-						<tr>
-							<th align="right"><label for="available">Available: </label></th>
-							<td align="left" th:text="${room.available}"></td>
-						</tr>
-					</table><br>
 
-					<input class="inputX" type="submit" value="YES">
-					<a th:href="@{/rooms}"><button class="btn1">NO</button></a>
-
-				</form>
-			</div>
-		</div>
 	</section>
 
 	<footer>

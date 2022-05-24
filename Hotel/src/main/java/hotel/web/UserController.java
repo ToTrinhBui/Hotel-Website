@@ -19,8 +19,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import hotel.data.OrderRepository;
-import hotel.entity.Order;
+import hotel.data.UserRepository;
+import hotel.entity.User;
 
 import org.springframework.validation.BindingResult;
 
@@ -28,30 +28,30 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Controller
-@RequestMapping("/orders")
-public class OrderController {
-	private final OrderRepository orderRepo;
+@RequestMapping("/customers")
+public class UserController {
+	private final UserRepository userRepo;
 
 	@Autowired
-	public OrderController(OrderRepository orderRepo) {
-		this.orderRepo = orderRepo;
+	public UserController(UserRepository userRepo) {
+		this.userRepo = userRepo;
 	}
 
 	@ModelAttribute
-	public void addOrderToModel(Model model) {
-		List<Order> orders = (List<Order>) orderRepo.findAll();
-		model.addAttribute("orders", orders);
+	public void addUserToModel(Model model) {
+		List<User> users = (List<User>) userRepo.findAll();
+		model.addAttribute("users", users);
 	}
 
 	@GetMapping
-	public String showOrder() {
-		return "order";
+	public String showCostumer() {
+		return "customer";
 	}
 
-	@GetMapping("/detailOrder")
-	public String detailOrder(@RequestParam("code") String code, Model model) {
-		Optional<Order> orderX = orderRepo.findById(code);
-		orderX.ifPresent(order -> model.addAttribute("order", order));
-		return "detailOrder";
+	@GetMapping("/detailUser")
+	public String detailUser(@RequestParam("code") Integer code, Model model) {
+		Optional<User> userX = userRepo.findById(code);
+		userX.ifPresent(user -> model.addAttribute("user", user));
+		return "detailUser";
 	}
 }

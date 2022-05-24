@@ -2,23 +2,23 @@
 <html lang="en" dir="ltr">
 
 <head>
-	<title>Edit Room</title>
+	<title>Statistics</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 	<header class="header" id="navigation-menu">
 		<div class="container">
 			<nav>
-				<a th:href="@{/}" class="logo"> <img src="image/logo.png" alt=""> </a>
+				<a th:href="@{/}" class="logo"> <img th:src="@{/image/logo.png}" alt=""> </a>
 
 				<ul class="nav-menu">
 					<li> <a href="#about" class="nav-link">About</a> </li>
-					<li> <a href="#contact" class="nav-link">Contact</a> </li>
 					<li> <a th:href="@{/}">Home</a></li>
 					<li> <a th:href="@{/rooms}">Manage room</a> </li>
 					<li> <a th:href="@{/orders}">Order</a> </li>
+					<li> <a th:href="@{/customers}">Customer</a> </li>
 					<li> <a th:href="@{/login}">Login</a> </li>
 					<li> <a th:href="@{/register}">Register</a> </li>
 				</ul>
@@ -26,52 +26,42 @@
 		</div>
 	</header>
 
-	<section class="restaurant mtop" id="restaurant">
+	<section class="order mtop" id="order">
 		<div class="container">
 			<div class="heading">
 				<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
-				<h2>Edit Room</h2>
+				<h2>Statistics</h2>
 			</div>
+			<table>
+				<tr>
+					<th>Id</th>
+					<th>Room</th>
+					<th>Customer</th>
+					<th>Date In</th>
+					<th>Date Out</th>
+				</tr>
+				<tr th:each="product : ${products}" valign="top">
+					<td th:text="${product.productCode}">code</td>
+					<td th:text="${product.productDescription}">description</td>
+					<td th:text="${product.productPrice}">price</td>
+				</tr>
+				<tr>
+					<td>Id</td>
+					<td>Room</th>
+					<td>Customer</td>
+					<td>Date In</ttd>
+					<td>Date Out</th>
+				</tr>
+				<tr>
+					<td>Id</td>
+					<td>Room</th>
+					<td>Customer</td>
+					<td>Date In</ttd>
+					<td>Date Out</th>
+				</tr>
+			</table><br>
 		</div>
-		<div class="container flex">
-			<div class="left">
-				<img src="image/r10.jpg" alt="">
-			</div>
-			<div class="right">
-					<h2> Information </h2>
-					<table cellspacing="5" border="0">
-						<tr>
-							<td align="right"><label for="id">Id: </label></td>
-							<td align="right"><input type="text"  placeholder="id" /></td>
-						</tr>
-						<tr>
-							<td align="right"><label for="name">Name: </label></td>
-							<td align="right"><input type="text"  placeholder="Name" /></td>
-						</tr>
-						<tr>
-							<td align="right"><label for="description">Description: </label></td>
-							<td align="right"><input type="text"  placeholder="Description" />
-							</td>
-						</tr>
-						<tr>
-							<td align="right"><label for="price">Price: </label></td>
-							<td align="right"><input type="text" placeholder="Price" /></td>
-						</tr>
-						<tr>
-							<td align="right"><label for="image">Image: </label></td>
-							<td align="right"><input type="text"  placeholder="Image" /></td>
-						</tr>
-						<tr>
-							<td align="right"><label for="available">Available: </label></td>
-							<td align="right"><input type="text" placeholder="Available" /></td>
-						</tr>
-					</table><br>
-					
-					<input class="inputX" type="submit" value="SUBMIT">
 
-			
-			</div>
-		</div>
 	</section>
 
 	<footer>

@@ -2,38 +2,23 @@
 <html lang="en" dir="ltr">
 
 <head>
-	<title>Room Details</title>
+	<title>Details Order</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="css/style.css">
-
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-
-
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css"
-		integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<link rel="stylesheet"
-		href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
-		integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
-		crossorigin="anonymous" referrerpolicy="no-referrer" />
-	<script src="https://code.jquery.com/jquery-1.12.4.min.js"
-		integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
-
+	<link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 	<header class="header" id="navigation-menu">
 		<div class="container">
 			<nav>
-				<a th:href="@{/}" class="logo"> <img src="image/logo.png" alt=""> </a>
+				<a th:href="@{/}" class="logo"> <img th:src="@{/image/logo.png}" alt=""> </a>
 
 				<ul class="nav-menu">
 					<li> <a href="#about" class="nav-link">About</a> </li>
-					<li> <a href="#contact" class="nav-link">Contact</a> </li>
 					<li> <a th:href="@{/}">Home</a></li>
 					<li> <a th:href="@{/rooms}">Manage room</a> </li>
 					<li> <a th:href="@{/orders}">Order</a> </li>
+					<li> <a th:href="@{/customers}">Customer</a> </li>
 					<li> <a th:href="@{/login}">Login</a> </li>
 					<li> <a th:href="@{/register}">Register</a> </li>
 				</ul>
@@ -41,82 +26,49 @@
 		</div>
 	</header>
 
-	<section class="restaurant mtop" id="restaurant">
+	<section class="detail mtop" id="detail">
 		<div class="container">
 			<div class="heading">
 				<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
-				<h2>Room Details</h2>
+				<h2>Details Order</h2>
 			</div>
+			<table>
+				<tr>
+					<th><label for="id">Id: </label></th>
+					<td>12</td>
+				</tr>
+				<tr>
+					<th><label for="name">Name: </label></th>
+					<td>saden</td>
+				</tr>
+				<tr>
+					<th><label for="description">Description: </label></th>
+					<td>jdihe</td>
+				</tr>
+				<tr>
+					<th><label for="price">Price: </label></th>
+					<td>sakdmkecm</td>
+				</tr>
+				<tr>
+					<th><label for="image">Image: </label></th>
+					<td>sjdnc</td>
+				</tr>
+				<tr>
+					<th><label for="available">Available: </label></th>
+					<td>sjdcjdcjdjj</td>
+				</tr>
+			</table><br>
 		</div>
-		<div class="container flex">
-			<div class="left">
-				<img src="image/r10.jpg" alt="">
-			</div>
-			<div class="right">
-				<div class="text">
-					<h2>Tên phòng</h2>
-					<p>Phòng loại I.</p>
-				</div>
-				<div class="accordionWrapper">
-					<div class="accordionItem open">
-						<h2 class="accordionIHeading">Mô tả</h2>
-						<div class="accordionItemContent">
-							<p>Phòng đôi rộng 50 mét vuông và có hướng nhìn ra vườn hoa.
-							</p>
-						</div>
-					</div>
-					<div class="accordionItem close">
-						<h2 class="accordionIHeading">Giá</h2>
-						<div class="accordionItemContent">
-							<p>500.000 VND/per night
-							</p>
-						</div>
-					</div>
-					<div class="accordionItem close">
-						<h2 class="accordionIHeading">Số phòng trống</h2>
-						<div class="accordionItemContent">
-							<p>No idea. Please ask the manager.
-							</p>
-						</div>
-					</div>
-					<div class="accordionItem close">
-						<h2 class="accordionIHeading">Mã phòng</h2>
-						<div class="accordionItemContent">
-							<p>1
-							</p>
-						</div>
-					</div>
-				</div>
 
-				<a th:href="@{/rooms}"><button class="btn1">RETURN</button></a>
-
-			</div>
-		</div>
 	</section>
-	<script>
-		var accItem = document.getElementsByClassName('accordionItem');
-		var accHD = document.getElementsByClassName('accordionIHeading');
 
-		for (i = 0; i < accHD.length; i++) {
-			accHD[i].addEventListener('click', toggleItem, false);
-		}
-
-		function toggleItem() {
-			var itemClass = this.parentNode.className;
-			for (var i = 0; i < accItem.length; i++) {
-				accItem[i].className = 'accordionItem close';
-			}
-			if (itemClass == 'accordionItem close') {
-				this.parentNode.className = 'accordionItem open';
-			}
-		}
-	</script>
 	<footer>
 		<div class="container grid top">
 			<div class="box">
 				<img
 					src="https://img.icons8.com/external-flatart-icons-flat-flatarticons/48/000000/external-hotel-hotel-services-and-city-elements-flatart-icons-flat-flatarticons-1.png" />
-				<p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+				<p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+					id
 					est laborum.</p>
 
 				<p>Accepted payment methods</p>
