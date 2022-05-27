@@ -229,7 +229,38 @@ button {
 .order a{
 	color:#C1B086;
 }
+.order .MyRoomChart{
+	display: inline-block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+.order .search input{
+  width: 40%;
+  padding: 10px;
+  border: 1px solid rgb(192, 192, 192);
+  outline: none;
+  background: white ;
+  color: black;
+  font-size: 15px;
+  border-radius: 8px;
+  margin-top: -15px;
+  margin-bottom: 0px;
+}
+.order .button input {
+  width: 10%;
+  padding: 13px;
+  border: 0px solid rgb(192, 192, 192);
+  outline: none;
+  background:  #C1B086 ;
+  margin-bottom: 30px;
+  color: white;
+  font-size: 15px;
+  border-radius: 0px;
+}
 
+.order ::placeholder{
+  color: rgb(192, 192, 192);
+}
 /*--------------order--------*/
 /*--------------detail--------*/
 .detail table{
@@ -571,17 +602,7 @@ input {
 .restaurant table{
 	border-spacing: 6px;
 }
-.restaurant td{
-  width: 100%;
-  padding: 10px;
-  border: 1px solid rgb(192, 192, 192);
-  outline: none;
-  background: white ;
-  color: black;
-  font-size: 15px;
-  border-radius: 8px;
-  margin: 0 120px 0 0;
-}
+
 .restaurant input{
   width: 100%;
   padding: 0px;
@@ -602,7 +623,17 @@ input {
   color: white;
   border-radius: 0px;
 }
-
+.restaurant td{
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgb(192, 192, 192);
+  outline: none;
+  background: white ;
+  color: black;
+  font-size: 15px;
+  border-radius: 8px;
+  margin: 0 120px 0 0;
+}
 .restaurant .inputX {
   width: 100%;
   padding: 13px;

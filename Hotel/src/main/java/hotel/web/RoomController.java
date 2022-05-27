@@ -50,7 +50,7 @@ public class RoomController {
 	}
 	
 	@GetMapping("/detailRoom")
-	public String detailRoom(@RequestParam("code") String code, Model model) {
+	public String detailRoom(@RequestParam("code") Integer code, Model model) {
 		Optional<Room> roomX = roomRepo.findById(code);
 		roomX.ifPresent(room -> model.addAttribute("room", room));
 		return "detailRoom";
@@ -63,14 +63,14 @@ public class RoomController {
 	}
 
 	@GetMapping("/editForm")
-	public String editFormRoom(@RequestParam("code") String code, Model model) {
+	public String editFormRoom(@RequestParam("code") Integer code, Model model) {
 		Optional<Room> roomX = roomRepo.findById(code);
 		roomX.ifPresent(room -> model.addAttribute("room", room));
 		return "editRoom";
 	}
 	
 	@GetMapping("/confirmDelete")
-	public String confirmDeleteRoom(@RequestParam("code") String code, Model model) {
+	public String confirmDeleteRoom(@RequestParam("code") Integer code, Model model) {
 		Optional<Room> roomX = roomRepo.findById(code);
 		roomX.ifPresent(room -> model.addAttribute("room", room));
 		return "deleteRoom";
@@ -91,7 +91,7 @@ public class RoomController {
 			roomRepo.save(room);
 			model.addAttribute(room);
 			log.info("Product saved: " + room);
-			return "addProductSuccess";
+			return "redirect:/rooms";
 		}
 	}
 

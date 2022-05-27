@@ -5,6 +5,8 @@
 	<title>Statistics</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
 </head>
 
 <body>
@@ -32,38 +34,26 @@
 				<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
 				<h2>Statistics</h2>
 			</div>
-			<table>
+			<div class="MyRoomChart" id="MyRoomChart"></div>
+			<table id="datatable">
 				<tr>
-					<th>Id</th>
-					<th>Room</th>
-					<th>Customer</th>
-					<th>Date In</th>
-					<th>Date Out</th>
+					<th align="left">Room ID</th>
+					<th align="left">Room Name</th>
+					<th align="left">Total Revenue</th>
+					<th></th>
 				</tr>
-				<tr th:each="product : ${products}" valign="top">
-					<td th:text="${product.productCode}">code</td>
-					<td th:text="${product.productDescription}">description</td>
-					<td th:text="${product.productPrice}">price</td>
-				</tr>
-				<tr>
-					<td>Id</td>
-					<td>Room</th>
-					<td>Customer</td>
-					<td>Date In</ttd>
-					<td>Date Out</th>
-				</tr>
-				<tr>
-					<td>Id</td>
-					<td>Room</th>
-					<td>Customer</td>
-					<td>Date In</ttd>
-					<td>Date Out</th>
+				<tr th:each="stats : ${statsS}" valign="top">
+					<td th:text="${stats.id_room}"></td>
+					<td th:text="${stats.name_room}"></td>
+					<td th:text="${stats.revenue}"></td>
 				</tr>
 			</table><br>
 		</div>
-
 	</section>
 
+	<script th:src="@{/js/stats.js}">
+
+	</script>
 	<footer>
 		<div class="container grid top">
 			<div class="box">

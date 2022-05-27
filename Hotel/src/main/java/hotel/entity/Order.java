@@ -40,6 +40,9 @@ public class Order {
 	@NotBlank(message = "id_customer is required")
 	private int id_customer;
 	
+	@NotBlank(message = "amount is required")
+	private long amount;
+	
 
 	@PrePersist
 	void createAt() {

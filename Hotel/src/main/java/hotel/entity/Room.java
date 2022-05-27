@@ -31,7 +31,7 @@ public class Room {
 	@Id
 	@GeneratedValue(generator="system-uuid")
 	@GenericGenerator(name="system-uuid", strategy = "uuid")
-	private final String id;
+	private final Integer id;
 	@NotBlank(message = "Name is required")
 	private final String name;
 	@NotBlank(message = "Description is required")

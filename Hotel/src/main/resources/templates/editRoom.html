@@ -27,18 +27,20 @@
 	</header>
 
 	<section class="restaurant mtop" id="restaurant">
-		<div class="container">
-			<div class="heading">
-				<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
-				<h2>Edit Room</h2>
+		<form method="POST" th:action="@{/rooms/edit}" th:object="${room}">
+			<div class="container">
+				<div class="heading">
+					<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
+					<h2>Edit Room</h2>
+				</div>
 			</div>
-		</div>
-		<div class="container flex">
-			<div class="left">
-				<img th:src="@{/image/r10.jpg}" alt="">
-			</div>
-			<div class="right">
-				<form method="POST" th:action="@{/rooms/edit}" th:object="${room}">
+			<div class="container flex">
+				<div class="left">
+					<img th:src="${room.image}"
+								alt="">
+				</div>
+				<div class="right">
+
 					<h2> Information </h2>
 					<table cellspacing="5" border="0">
 						<tr>
@@ -67,12 +69,13 @@
 							<td align="right"><input type="text" th:field="*{available}" placeholder="Available" /></td>
 						</tr>
 					</table><br>
-					
+
 					<input class="inputX" type="submit" value="SUBMIT">
 
-				</form>
+
+				</div>
 			</div>
-		</div>
+		</form>
 	</section>
 
 	<footer>

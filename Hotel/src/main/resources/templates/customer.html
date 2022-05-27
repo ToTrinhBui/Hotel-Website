@@ -32,28 +32,48 @@
 				<h5>RAISING COMFORT TO THE HIGHEST LEVEL</h5>
 				<h2>Customers</h2>
 			</div>
+			<form th:action="@{/customers}">
+				<div class="search">
+					<input type="text" name="keyword" id="keyword" size="50" th:value="${keyword}" required
+						placeholder="Nhập họ tên hay số điện thoại để tìm kiếm" />
+				</div>
+				<div class="button">
+					<input type="submit" value="Search" />
+					&nbsp;
+					<input type="button" value="Clear" onclick="clearSearch()" />
+				</div>
+			</form>
 			<table>
-				<tr>
-					<th>Id</th>
-					<th>Name</th>
-					<th>Date Of Birth</th>
-					<th>Address</th>
-					<th>Phone Number</th>
-					<th></th>
-				</tr>
-				<tr th:each="user : ${users}" valign="top">
+				<thead>
+					<tr>
+						<th>Id</th>
+						<th>Name</th>
+						<th>Date Of Birth</th>
+						<th>Address</th>
+						<th>Phone Number</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="user : ${list}" valign="top">
 						<td th:text="${user.id}">id</td>
 						<td th:text="${user.name}">name</td>
 						<td th:text="${user.birthday}">birthday</td>
 						<td th:text="${user.address}">address</td>
 						<td th:text="${user.phone}">phone</td>
 						<td><a th:href="@{/customers/detailUser?code={code}(code=${user.id})}">More</a></td>
-				</tr>
+					</tr>
+				<tbody>
 			</table><br>
+
 		</div>
 
 	</section>
-
+	<script type="text/javascript">
+		function clearSearch() {
+			window.location = "[[@{/customers}]]";
+		}
+	</script>
 	<footer>
 		<div class="container grid top">
 			<div class="box">
